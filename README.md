@@ -181,4 +181,5 @@ curl -H "Content-Type: application/json" -X POST -d '{"email": "something@email.
 curl -H "Authorization: eyJhbGciOiJIUzI1NiIsImV4cCI6MTUwNDQ5NjcwOSwiaWF0IjoxNTAzMjg3MTA5fQ.eyJpc19hZG1pbiI6ZmFsc2UsImlkIjoxLCJlbWFpbCI6InNvbWV0aGluZ0BlbWFpbC5jb20ifQ.TcD7N62bfcDEyOzS4_8KnT9v9iQwZCJipxxtSiPf5tQ" -X GET http://localhost:5000/api/v1/user
 ```
 
+**Build Status**
 [![Build Status](https://ci.cloudlockng.com/api/badges/talmoramit/drone-python-tutorial/status.svg)](https://ci.cloudlockng.com/talmoramit/drone-python-tutorial)
