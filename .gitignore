@@ -58,3 +58,6 @@ docs/_build/
 
 # Vagrant Stuff
 .vagrant
+
+# virtual env
+dronenv/

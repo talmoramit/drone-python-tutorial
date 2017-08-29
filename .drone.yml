@@ -1,0 +1,20 @@
+# Create a shared workspace for us to pass data from step to step
+workspace:
+  base: /app
+  path: src/github.com/talmoramit/drone-python-tutorial
+
+pipeline:
+  build:
+    # Start with a small image
+    image: josebarn/python-2.7-base:latest
+    commands:
+      - virtualenv /app/env
+      - /app/env/bin/pip install -r requirements.txt
+      - /app/env/bin/pip install --upgrade pip setuptools wheel
+      - /app/env/bin/pip wheel -r requirements.txt --wheel-dir=wheeldir --find-links=wheeldir
+      - /app/env/bin/pip wheel -r test-requirements.txt --wheel-dir=wheeldir --find-links=wheeldir
+      - /app/env/bin/pip install --use-wheel --no-index --find-links=wheeldir -r requirements.txt
+      - /app/env/bin/pip install --use-wheel --no-index --find-links=wheeldir -r test-requirements.txt
+      # package and install
+      - /app/env/bin/python setup.py bdist
+      - /app/env/bin/python setup.py install
